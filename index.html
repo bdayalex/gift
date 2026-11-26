@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff000">
+  <title>Una sorpresa para vos ♡</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <!-- ESCENA 1: INTRO GRÁFICA -->
+    <section class="scene intro active" id="intro" aria-label="Introducción">
+      <div class="intro-content">
+        <!-- Fotogramas reales del GIF original (assets/intro/), sin marca de agua. Se reproducen desde script.js -->
+        <div class="gif-stage" id="introStage" aria-hidden="true"><img id="introFrame" alt="" draggable="false"></div>
+        <div class="intro-finale" id="introFinale" aria-live="polite">
+          <h1 class="sr-only">Feliz cumpleaños</h1><p class="sr-only">Alex</p>
+          <!-- Texto final en la misma fuente de píxeles que la carita -->
+          <div class="px px-text" data-text="FELIZ" data-k="1.5" style="--d:0s" aria-hidden="true"></div>
+          <div class="px px-text" data-text="CUMPLEAÑOS" data-k="1" style="--d:.14s" aria-hidden="true"></div>
+          <div class="px px-text px-name" data-text="ALEX" data-k="2.4" style="--d:.34s" aria-hidden="true"></div>
+        </div>
+        <button class="action-button black-button intro-tap hidden" id="introTap">TOCÁ PARA EMPEZAR</button>
+        <button class="action-button black-button intro-start" id="startJourney">CONTINUAR <span>→</span></button>
+      </div>
+      <div class="intro-corner">25·11</div>
+    </section>
+
+    <!-- ESCENA 2: SOBRE Y CARTA -->
+    <section class="scene galaxy" id="letterScene" aria-label="Una carta en el espacio">
+      <div class="stars" aria-hidden="true"></div>
+      <div class="nebula nebula-one"></div><div class="nebula nebula-two"></div>
+      <div class="moon"></div>
+      <p class="scene-kicker">UNA CARTA PARA ALEX</p>
+      <p class="hint" id="envelopeHint">Tocá el sobre para abrirlo</p>
+      <button class="envelope-wrap" id="envelope" aria-label="Abrir sobre">
+        <span class="envelope-shadow"></span>
+        <span class="envelope">
+          <span class="envelope-back"></span>
+          <span class="letter-peek"><span>♡</span></span>
+          <span class="envelope-front"></span>
+          <span class="envelope-flap"></span>
+          <span class="seal">♡</span>
+        </span>
+      </button>
+      <article class="letter-card" id="letterCard" aria-hidden="true">
+        <img class="letter-cherry" src="assets/cereza.png" alt="" draggable="false">
+        <h2>Feliz cumpleaños Alex,</h2>
+        <div class="letter-lines">
+          <p>hoy es tu día especial y quise hacerte aunque sea un detallito lindo, hace rato no hablamos y nada, eres lo mejor que me pasó y mi persona favorita, y en serio, no te cambiaría por nada, te quiero tanto, gracias por ser mi mejor amiga, ten este regalito que te daré y espero tengas un hermoso día,</p>
+        </div>
+        <p class="letter-sign">con cariño, Lau</p>
+        <button class="action-button pink-button" id="toCat">SEGUIR LA AVENTURA <span>→</span></button>
+      </article>
+      <button class="skip-button" id="skipLetter">Saltar intro de la carta</button>
+    </section>
+
+    <!-- ESCENA 3: ALIMENTAR AL GATITO -->
+    <section class="scene cat-scene" id="catScene" aria-label="Dale de comer al gatito">
+      <div class="soft-stars"></div>
+      <p class="scene-kicker">UNA PEQUEÑA MISIÓN PARA ALEX</p>
+      <h2>Primero, ayudá a este michi</h2>
+      <p class="scene-description">Arrastrá las cerezas hasta el gatito. ¡Tiene hambre!</p>
+      <div class="cat-stage" id="catStage">
+        <div class="cat-heart" id="catHeart" aria-hidden="true">♡</div>
+        <div class="cat" id="cat" role="img" aria-label="Un gatito con gorro de fiesta esperando cerezas"><img src="assets/gato.png" alt="" draggable="false"></div>
+        <div class="food-target" id="foodTarget" aria-hidden="true">↓</div>
+      </div>
+      <div class="feed-status">
+        <p class="feed-count" id="feedCount">CEREZAS: 0 / 3</p>
+        <div class="feed-progress" aria-hidden="true"><i id="feedProgress"></i></div>
+      </div>
+      <div class="cherry-tray" aria-label="Comida para arrastrar">
+        <button class="cherry" id="cherry" type="button" aria-label="Arrastrar cerezas" title="Arrastrá las cerezas hasta el gatito">
+          <img src="assets/cereza.png" alt="" draggable="false">
+        </button>
+        <p>Agarrá y soltá acá arriba</p>
+      </div>
+      <p class="cat-message" id="catMessage" aria-live="polite">El gatito te está mirando... ¡también podés acariciarlo!</p>
+      <button class="action-button gift-unlock hidden" id="toGift">¡LISTO! IR AL REGALO →</button>
+    </section>
+
+    <!-- ESCENA 4: REGALO -->
+    <section class="scene gift-scene" id="giftScene" aria-label="Un regalo">
+      <div class="gift-sparkles">✦　·　✧　·　✦</div>
+      <p class="scene-kicker">MISIÓN COMPLETADA</p>
+      <h2>¡El gatito tenía algo para vos!</h2>
+      <p class="scene-description">Tocá el regalo para descubrir tu sorpresa.</p>
+      <button class="gift-box" id="giftBox" aria-label="Abrir regalo">
+        <span class="gift-lid"><i></i></span><span class="gift-body"></span>
+        <span class="gift-ribbon"></span><span class="gift-bow">🎀</span>
+      </button>
+      <p class="gift-hint" id="giftHint">Un regalo hecho con mucho cariño</p>
+    </section>
+
+    <!-- ESCENA 5: OBRA -->
+    <section class="scene artwork-scene" id="artScene" aria-label="Tu regalo">
+      <div class="art-confetti">✦　✧　♡　✦　✧</div>
+      <p class="scene-kicker">UN REGALO PARA ALEX ♡</p>
+      <h2>¡Feliz cumpleaños, Alex!</h2>
+      <p class="scene-description">Este dibujito es tuyo. Espero que te acompañe y te saque una sonrisa.</p>
+      <div class="art-frame">
+        <img src="assets/tu-dibujo.gif" alt="Dibujo de regalo para Alex" id="artwork">
+      </div>
+      <p class="art-note">Un pequeño regalo, hecho especialmente para vos.</p>
+      <div class="download-actions">
+        <a class="action-button pink-button" href="assets/tu-dibujo.jpg" download="tu-dibujo.jpg">DESCARGAR JPG ↓</a>
+        <a class="action-button dark-button" href="assets/tu-dibujo.gif" download="tu-dibujo.gif">DESCARGAR GIF ↓</a>
+      </div>
+      <button class="restart-button" id="restart">Volver a ver la sorpresa ↺</button>
+    </section>
+  </main>
+  <!-- Confeti (GIF transparente): no bloquea toques -->
+  <div class="confetti-overlay" id="confetti" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>

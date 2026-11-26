@@ -1,0 +1,34 @@
+REGALO INTERACTIVO PARA ALEX  (v8)
+===================================
+
+CÓMO PROBARLO
+Descomprimí el ZIP y abrí `index.html` con Chrome, Edge, Firefox o Safari (en computadora o celular).
+Si el navegador bloquea el sonido, la intro muestra un botón “TOCÁ PARA EMPEZAR”: un toque y arranca con música.
+Para volver a ver todo desde el principio: botón “Volver a ver la sorpresa” al final.
+
+QUÉ PASA, ESCENA POR ESCENA
+1. Intro: fotogramas reales del GIF original (^q^ al principio y después las armas, repetidas) con el sonido original, que suena una sola vez. La intro dura exactamente lo que dura la canción y termina con “FELIZ CUMPLEAÑOS / ALEX” en pixel art.
+2. Sobre 3D flotante: tocarlo lo abre y aparece la carta (con cereza).
+3. Gatito: se arrastran 3 cerezas hasta él (mouse o dedo). Cada cereza suena “ñam ñam” y el gato se contrae y rebota. También se lo puede acariciar tocándolo o frotándolo. Con la tercera cereza suena el “yaay” y cae confeti.
+4. Regalo: se toca la caja y se abre.
+5. Dibujo (hoja vertical) con descarga en JPG y GIF.
+
+DÓNDE EDITAR
+- Texto de la carta: `index.html`, dentro de `<article class="letter-card">`.
+- Intro: la velocidad se ajusta sola para durar lo mismo que la canción. En `script.js` se puede cambiar INTRO_FACE_TURNS (veces que alterna la carita) e INTRO_WEAPON_LOOPS (repeticiones del ciclo de armas).
+- Letras del final de la intro: PIXEL_FONT (script.js).
+- Duración del confeti: CONFETTI_MS (script.js). Tiempo entre el último ñam y el festejo: el 700 en `yayTimer=setTimeout(...)`.
+- Colores y tamaños (gato, cereza, carta): `styles.css`, bloque “Versión 7”.
+
+ARCHIVOS (carpeta assets/)
+- tu-dibujo.jpg: el dibujo en proceso (4960×7016, hoja A4 vertical).
+- tu-dibujo.gif: PROVISORIO. Es una versión ESTÁTICA del mismo dibujo (1240×1754). Reemplazalo por el GIF animado definitivo conservando el nombre y la proporción vertical de la hoja (4960×7016, o más chico con la misma proporción). El marco de la página se adapta a esa proporción.
+- intro/f00.png … f16.png: fotogramas del GIF original (sin marca de agua, fondo transparente).
+- vanity-sound.ogg/.mp3: sonido de la intro.
+- gato.png: gato de referencia.   cereza.png: cereza.
+- nomnom.ogg/.mp3: sonido al comer.   yay.ogg/.mp3: festejo.   confeti.gif: confeti.
+(El .mp3 de cada sonido es un respaldo para navegadores que no leen OGG.)
+
+NOTAS
+- Las tipografías vienen de Google Fonts: necesitan internet; sin conexión se ve una tipografía común.
+- Todos los textos están en español.

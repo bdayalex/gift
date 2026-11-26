@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Nunito:wght@500;600;700;800;900&family=Patrick+Hand&display=swap');
+:root{--yellow:#fff000;--ink:#111;--pink:#f4a4ad;--cream:#fffdf0;--night:#080b25;--lav:#a5a9ff}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Nunito,system-ui,sans-serif}body{overflow:hidden;background:#080b25;color:#24202b}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}.scene{position:fixed;inset:0;display:none;overflow:hidden;min-height:100svh;width:100%;align-items:center;justify-content:center;flex-direction:column;padding:28px 18px;text-align:center}.scene.active{display:flex;animation:sceneIn .65s ease both}@keyframes sceneIn{from{opacity:0}to{opacity:1}}
+.action-button{border:0;border-radius:999px;padding:13px 22px;font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.04em;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:14px;transition:transform .2s,box-shadow .2s;min-height:46px}.action-button:hover{transform:translateY(-3px)}.action-button:active{transform:scale(.97)}.black-button,.dark-button{background:#111;color:white}.pink-button{background:#f2a4ad;color:#3d2029;box-shadow:0 7px 0 #d7808b}.ghost-button{background:#fff9;border:1px solid #e5cbd0;color:#583d45}.hidden{display:none!important}
+.intro{background:var(--yellow);color:#080808;font-family:'DM Mono',monospace}.intro-grain{position:absolute;inset:0;opacity:.12;background-image:radial-gradient(#000 0.7px,transparent .7px);background-size:5px 5px;pointer-events:none}.intro-content{position:relative;display:flex;align-items:center;flex-direction:column;z-index:1;width:min(92vw,650px)}.micro-label,.intro-sub,.intro-corner,.scene-kicker{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em}.micro-label{margin:0 0 20px;animation:labelBlink 1.1s steps(2) infinite}.pixel-eyes{height:29px;display:flex;gap:80px;align-items:end}.pixel-eyes i{width:30px;height:23px;display:block;background:linear-gradient(90deg,transparent 0 33%,#111 33% 66%,transparent 66%),linear-gradient(#111 0 33%,transparent 33% 66%,#111 66%);image-rendering:pixelated}.intro-number{font-size:clamp(125px,27vw,225px);line-height:.78;margin:12px 0 0;font-weight:900;letter-spacing:-.12em;text-shadow:8px 0 #111;transform:scaleY(1.08);animation:numberJolt .8s steps(2) infinite alternate}
+.intro-word{font-size:clamp(30px,8vw,68px);font-weight:900;letter-spacing:-.075em;margin:26px 0 4px;animation:wordPop .45s steps(3) both;min-height:1.15em}
+.intro-sub{margin:0 0 28px}
+.intro-start{opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .5s,transform .5s}
+.intro-start.ready{opacity:1;pointer-events:auto;transform:translateY(0)}
+.intro-doodles{position:absolute;inset:-65px -7vw;pointer-events:none}
+.doodle{position:absolute;font-family:Nunito,sans-serif;font-weight:900;opacity:0;animation:doodleIn .5s steps(3) forwards}
+.doodle-star{left:2%;top:15%;font-size:clamp(35px,7vw,65px);animation-delay:.8s;transform:rotate(-15deg)}
+.doodle-heart{right:3%;top:25%;font-size:clamp(42px,8vw,76px);animation-delay:1.7s}
+.doodle-cake{left:8%;bottom:7%;font-size:clamp(35px,7vw,62px);animation-delay:2.5s}
+.doodle-spark{right:8%;bottom:10%;font-size:clamp(30px,6vw,55px);animation-delay:3.1s}
+@keyframes doodleIn{0%{opacity:0;transform:scale(.2) rotate(-25deg)}65%{opacity:1;transform:scale(1.25) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes labelBlink{50%{opacity:.35}}
+@keyframes numberJolt{from{transform:translateX(-2px) rotate(-1deg) scaleY(1.08)}to{transform:translateX(2px) rotate(1deg) scaleY(1.08)}}.intro-corner{position:absolute;bottom:18px;right:20px;font-size:9px}@keyframes wordPop{0%{transform:scaleY(0);opacity:0}100%{transform:scaleY(1);opacity:1}}
+.galaxy{background:radial-gradient(ellipse at 50% 52%,#202a6a 0,#101a49 38%,#06091d 78%);color:#fff}.stars,.soft-stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#9ee8ff 1px,transparent 1.5px),radial-gradient(#fff8 1px,transparent 1.5px);background-size:83px 83px,137px 137px,53px 53px;background-position:0 0,35px 52px,18px 11px;animation:starDrift 35s linear infinite}@keyframes starDrift{to{background-position:200px 150px,-100px 200px,90px -120px}}.nebula{position:absolute;width:65vw;height:40vw;max-height:420px;filter:blur(45px);opacity:.25;border-radius:50%;pointer-events:none}.nebula-one{background:#3a75ff;left:-20%;top:20%;transform:rotate(-25deg)}.nebula-two{background:#c65bff;right:-25%;bottom:10%}.moon{position:absolute;width:min(62vw,390px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffed0,#f7ed9c 60%,#c8bd77);box-shadow:0 0 70px #fff4a7aa;opacity:.9}.scene-kicker{z-index:1;margin:0 0 12px;color:#fff;position:relative}.hint,.scene-description{z-index:1;position:relative;color:#e8e6ff;font-size:14px}.hint{margin:0 0 18px}.envelope-wrap{position:relative;z-index:2;width:min(74vw,330px);height:230px;border:0;background:transparent;perspective:900px;transform-style:preserve-3d;animation:float 3.6s ease-in-out infinite;filter:drop-shadow(0 22px 18px #0006)}@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-13px) rotate(2deg)}}.envelope-wrap:hover{animation-play-state:paused}.envelope{position:absolute;inset:20px 0 0;display:block;transform-style:preserve-3d}.envelope-back{position:absolute;inset:0;background:#f8d4cf;border:3px solid #d98f9b;border-radius:5px}.letter-peek{position:absolute;left:8%;right:8%;height:95%;bottom:8%;background:var(--cream);border:2px solid #e8a1a8;display:flex;justify-content:center;align-items:center;color:#d98591;font-size:38px;transition:transform .9s cubic-bezier(.2,.8,.2,1);z-index:1}.envelope-front{position:absolute;inset:0;background:linear-gradient(145deg,#f4b9bd 0 49.5%,#f8c9c5 50%);clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);z-index:3;border-radius:4px}.envelope-flap{position:absolute;inset:0;background:#ffe0d9;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .8s ease;z-index:4}.seal{position:absolute;z-index:5;left:50%;top:43%;transform:translate(-50%,-50%);background:#c66c7b;color:white;width:43px;height:43px;border-radius:50%;display:grid;place-items:center;font-size:23px;box-shadow:0 3px 0 #a54e61}.envelope-wrap.opened{animation:none;pointer-events:none}.envelope-wrap.opened .envelope-flap{transform:rotateX(180deg);z-index:0}.envelope-wrap.opened .letter-peek{transform:translateY(-115px) scale(1.02);transition-delay:.45s}.envelope-wrap.opened .seal{opacity:0}.letter-card{z-index:6;position:absolute;width:min(88vw,560px);max-height:78svh;overflow:auto;background:var(--cream);color:#4b3038;border:5px solid #efa0a8;box-shadow:0 12px 35px #0007;padding:34px 34px 24px;text-align:left;opacity:0;transform:translateY(40px) scale(.86) rotateX(-12deg);pointer-events:none;transition:opacity .6s,transform .7s cubic-bezier(.2,.8,.2,1);font-family:'Patrick Hand',cursive}.letter-card.visible{opacity:1;transform:translateY(0) scale(1) rotateX(0);pointer-events:auto;transition-delay:.8s}.letter-card h2{font-size:29px;margin:0 0 12px}.letter-crown{position:absolute;right:25px;top:18px;font-size:38px;color:#e3b735}.letter-lines{background:repeating-linear-gradient(to bottom,transparent 0 32px,#efc9c8 33px,#efc9c8 34px);font-size:23px;line-height:34px;min-height:170px;padding-top:0}.letter-lines p{margin:0}.letter-lines .placeholder-line{color:#b67d83}.letter-sign{text-align:right;font-size:22px;margin:14px 0}.letter-sign span{color:#d87889}.letter-card .action-button{font-family:'DM Mono',monospace;font-size:10px;display:flex;margin:14px auto 0}.skip-button{position:absolute;bottom:17px;z-index:8;background:none;border:0;color:#c8c9ef;text-decoration:underline;font-size:11px}
+.cat-scene{background:linear-gradient(160deg,#fff6e9,#f9dce6 58%,#d9dcff);color:#533c4b}.cat-scene .scene-kicker,.gift-scene .scene-kicker,.artwork-scene .scene-kicker{color:#a35f76}.cat-scene h2,.gift-scene h2,.artwork-scene h2{font-size:clamp(27px,6vw,42px);margin:0 0 4px;z-index:1}.cat-scene .scene-description,.gift-scene .scene-description,.artwork-scene .scene-description{color:#785e6a;margin:0 0 12px}.cat-stage{width:min(90vw,430px);height:230px;position:relative;display:flex;align-items:center;justify-content:center}.cat{font-size:112px;z-index:2;filter:drop-shadow(0 8px 2px #0001);transition:transform .25s}.cat.happy{animation:happy .55s ease}.cat-heart{position:absolute;top:15px;left:58%;font-size:32px;color:#e77d9a;opacity:0;transform:translateY(10px);transition:.25s}.cat-heart.show{opacity:1;transform:translateY(0)}.food-bowl{position:absolute;bottom:5px;right:22%;font-size:52px}.food{position:absolute;bottom:52px;right:27%;font-size:29px;transition:.35s;opacity:0;transform:translateY(-30px)}.food.show{opacity:1;transform:translateY(0)}@keyframes happy{50%{transform:translateY(-15px) rotate(7deg) scale(1.08)}}.feed-count{font-family:'DM Mono',monospace;font-size:12px}.food-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}.cat-message{min-height:22px;font-size:13px;color:#805a6c}.gift-unlock{margin-top:6px;background:#fff;color:#784b5b;border:1px solid #e6b7c4}.gift-scene{background:radial-gradient(circle at 50% 45%,#fff3cf,#f9cbd8 48%,#c6caff);color:#533c4b}.gift-sparkles{font-size:25px;letter-spacing:12px;color:#fff;position:absolute;top:12%}.gift-box{position:relative;width:190px;height:175px;border:0;background:transparent;margin:28px 0 10px;filter:drop-shadow(0 15px 12px #8a536555);transition:transform .3s}.gift-box:hover{transform:scale(1.05) rotate(-2deg)}.gift-body{position:absolute;left:15px;right:15px;bottom:0;height:115px;background:#e98b9d;border-radius:8px 8px 14px 14px;border:4px solid #fff0}.gift-ribbon{position:absolute;left:83px;bottom:0;height:115px;width:24px;background:#ffe8a0;z-index:2}.gift-lid{position:absolute;z-index:4;left:4px;right:4px;top:38px;height:35px;background:#f5a6b1;border:4px solid #fff3;border-radius:7px;transform-origin:left;transition:transform .7s}.gift-lid i{position:absolute;left:76px;top:0;width:24px;height:100%;background:#ffe8a0}.gift-bow{position:absolute;z-index:5;top:0;left:69px;font-size:48px;transition:transform .7s}.gift-box.open .gift-lid{transform:translate(-25px,-65px) rotate(-28deg)}.gift-box.open .gift-bow{transform:translate(30px,-75px) rotate(30deg);opacity:0}.gift-hint{font-size:13px;color:#785e6a}.gift-box.open{transform:scale(.85);opacity:0;transition:all .7s}.artwork-scene{background:linear-gradient(145deg,#fff8ef,#f5dce7 55%,#dfe1ff);color:#533c4b;overflow-y:auto;justify-content:flex-start;padding-top:38px;padding-bottom:30px}.art-confetti{font-size:20px;color:#d58ca0;letter-spacing:12px;margin-bottom:8px}.art-frame{width:min(78vw,410px);height:min(43vh,360px);min-height:190px;background:#fff;border:9px solid white;outline:1px solid #e7b7c5;box-shadow:0 15px 40px #8a536533;border-radius:4px;display:grid;place-items:center;overflow:hidden;margin:12px auto}.art-frame img{width:100%;height:100%;object-fit:contain}.art-note{font-family:'Patrick Hand',cursive;font-size:20px;color:#906b78}.download-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:12px 0}.restart-button{border:0;background:transparent;color:#8a6976;text-decoration:underline;font-size:12px;margin-top:12px}
+@media(max-width:520px){.scene{padding-left:16px;padding-right:16px}.letter-card{padding:28px 20px 20px;border-width:4px}.letter-lines{font-size:19px;line-height:31px;min-height:155px}.letter-card h2{font-size:25px}.letter-crown{right:18px;top:12px}.envelope-wrap{width:min(82vw,310px);height:205px}.food-actions{flex-direction:column;width:min(82vw,280px)}.food-actions .action-button{width:100%}.cat-stage{height:205px}.cat{font-size:98px}.download-actions{flex-direction:column;width:min(82vw,290px)}.download-actions a{width:100%}.artwork-scene{padding-top:25px}.art-frame{width:min(84vw,410px);height:36vh}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* Intro: cortes gráficos y apariciones escalonadas */
+.intro-content::before,.intro-content::after{content:"";position:absolute;z-index:-1;background:#111}
+.intro-content::before{width:110vw;height:2px;top:45%;left:-55vw;transform:rotate(-13deg);opacity:.8;animation:slashAcross 1.1s .35s both}
+.intro-content::after{width:2px;height:120vh;top:-10vh;right:8%;transform:rotate(24deg);opacity:.45;animation:slashAcross 1s 2.2s both}
+@keyframes slashAcross{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@media(max-width:520px){.intro-doodles{inset:-45px -3vw}.intro-number{text-shadow:5px 0 #111}.intro-word{margin-top:24px}}
+
+
+/* Ajustes de la versión 3: intro fiel a la referencia y comida arrastrable */
+.intro{background:#fff000;color:#080808;font-family:'DM Mono',monospace}
+.intro-content{width:min(92vw,620px);min-height:340px;justify-content:center}
+.intro-face,.tool-sequence,.intro-finale{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column}
+.pixel-eyes{height:30px;gap:80px;align-items:end}
+.pixel-eyes i{width:30px;height:24px;background:none;position:relative}
+.pixel-eyes i:before{content:"";position:absolute;inset:0;background:#111;clip-path:polygon(35% 0,68% 0,68% 32%,100% 32%,100% 66%,68% 66%,68% 100%,35% 100%,35% 66%,0 66%,0 32%,35% 32%)}
+.intro-number{font-family:Arial,sans-serif;font-size:clamp(105px,24vw,170px);font-weight:500;letter-spacing:-.09em;line-height:.85;margin:8px 0 0;text-shadow:none;animation:none}
+.tool-sequence,.intro-finale{opacity:0;visibility:hidden}
+.tool-frame{position:absolute;width:min(76vw,360px);height:auto;fill:none;stroke:#111;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.tool-frame.active{opacity:1}
+.intro-finale h1{font-family:Arial,sans-serif;font-size:clamp(54px,14vw,112px);letter-spacing:-.08em;line-height:.9;margin:0;font-weight:900}
+.intro-finale p{font-family:'DM Mono',monospace;font-size:clamp(22px,6vw,40px);font-weight:500;letter-spacing:.04em;margin:14px 0 0}
+.intro-start{position:absolute;bottom:-35px;opacity:0;pointer-events:none}
+.intro-start.ready{opacity:1;pointer-events:auto}
+.intro-corner{font-size:9px;letter-spacing:.12em}
+.intro.phase-tools .intro-face{opacity:0;visibility:hidden}
+.intro.phase-tools .tool-sequence{opacity:1;visibility:visible}
+.intro.phase-finale .intro-face,.intro.phase-finale .tool-sequence{opacity:0;visibility:hidden}
+.intro.phase-finale .intro-finale{opacity:1;visibility:visible}
+.intro.phase-finale .intro-start{opacity:1;pointer-events:auto;transform:none}
+.cat-stage{touch-action:pan-y}
+.cat{user-select:none;-webkit-user-select:none}
+.cat.eating{animation:catChomp .42s ease}
+@keyframes catChomp{0%,100%{transform:translateY(0) scale(1)}35%{transform:translateY(-12px) rotate(-7deg) scale(1.12)}65%{transform:translateY(-4px) rotate(6deg) scale(.98)}}
+.food-target{position:absolute;z-index:1;top:14px;left:50%;transform:translateX(-50%);font-size:26px;color:#d87891;opacity:0;transition:opacity .2s}
+.cat-stage.drag-over .food-target{opacity:1}
+.cat-stage.drag-over .cat{transform:scale(1.08)}
+.feed-status{width:min(80vw,260px);margin:0 auto 4px}
+.feed-count{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.06em;margin:4px 0 9px}
+.feed-progress{height:7px;background:#fff9;border:1px solid #dbaebc;border-radius:10px;overflow:hidden}
+.feed-progress i{display:block;width:0;height:100%;background:#df8299;border-radius:10px;transition:width .3s}
+.cherry-tray{display:flex;align-items:center;flex-direction:column;gap:4px;margin-top:8px}
+.cherry-tray p{font-size:11px;color:#987281;margin:0}
+.cherry{width:76px;height:65px;border:1px dashed #d88ea2;border-radius:16px;background:#fff9;display:grid;place-items:center;font-size:39px;touch-action:none;user-select:none;cursor:grab;position:relative;z-index:5}
+.cherry:active{cursor:grabbing}
+.cherry.dragging{opacity:.35}
+.cherry-ghost{position:fixed;z-index:9999;pointer-events:none;font-size:43px;transform:translate(-50%,-50%);filter:drop-shadow(0 5px 4px #0003)}
+.cat-message{min-height:24px}
+@media(max-width:520px){
+ .intro-content{min-height:290px}
+ .pixel-eyes{gap:66px}
+ .pixel-eyes i{transform:scale(.85)}
+ .intro-start{bottom:-28px}
+ .cat-stage{height:190px}
+ .cherry{width:72px;height:60px}
+ .cat-message{font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+ .intro-start,.intro-finale,.tool-sequence,.tool-frame,.feed-progress i{transition:none!important}
+}
+
+
+.intro-content::before,.intro-content::after{content:none!important}
+.envelope{transform:rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .16s ease-out}
+.envelope-wrap{touch-action:manipulation}
+.cherry:disabled{cursor:default;opacity:.75}
+
+.cat-scene{overflow-y:auto;overscroll-behavior:contain}
+.cat-scene .soft-stars{position:fixed}
+
+/* Personalización solicitada: emoticono y saludo de cumpleaños */
+.intro-emoticon{font-family:Arial,sans-serif;font-size:clamp(88px,22vw,160px);font-weight:800;letter-spacing:-.09em;line-height:1;margin:0;color:#080808}
+.intro-finale h1{font-size:clamp(42px,10vw,86px);letter-spacing:-.065em;text-align:center;max-width:90vw}
+.intro-finale p{font-family:Arial,sans-serif;font-size:clamp(36px,9vw,72px);font-weight:900;letter-spacing:-.06em;margin:8px 0 0}
+
+/* ───────── Versión 5: pixel art real en la intro ───────── */
+/* --cell = tamaño de un “píxel” del dibujo; crece con la pantalla y nunca baja de 3px. */
+.intro{--cell:clamp(3px,1.4vw,9px)}
+.px{display:block;line-height:0;image-rendering:pixelated}
+.px svg{display:block;width:100%;height:100%;fill:#080808}
+.intro-finale{gap:calc(var(--cell)*2.2)}
+.intro-finale .px{opacity:0}
+.intro.phase-finale .intro-finale .px{animation:pxIn 0s linear var(--d,0s) both}
+@keyframes pxIn{from{opacity:0}to{opacity:1}}
+.intro-finale .px-name{margin-top:calc(var(--cell)*.4)}
+/* Texto solo para lectores de pantalla (el visual es el pixel art). */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.intro-finale .sr-only{font-size:1px}
+/* El animal puede ser una imagen (assets/gato.png) en lugar del emoji provisional. */
+.cat img{display:block;width:min(46vw,200px);height:auto;pointer-events:none;-webkit-user-drag:none;user-select:none}
+
+/* El botón CONTINUAR va anclado al borde inferior de la pantalla: no se pisa con el texto final. */
+.intro-start{position:fixed;left:0;right:0;bottom:max(46px,7vh);margin:0 auto;width:max-content}
+@media(max-width:520px){.intro-start{bottom:max(40px,6vh)}}
+
+/* ───────── Versión 6: fotogramas reales del GIF + sonido ───────── */
+.intro{--k:1.7}
+.gif-stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.gif-stage img{display:block;max-width:none;height:auto;image-rendering:auto;-webkit-user-drag:none;user-select:none}
+.intro.phase-finale .gif-stage{display:none}
+.intro-tap{position:fixed;left:0;right:0;bottom:max(46px,7vh);margin:0 auto;width:max-content;z-index:3;animation:tapBlink 1s steps(2) infinite}
+@keyframes tapBlink{50%{opacity:.55}}
+@media(prefers-reduced-motion:reduce){.intro-tap{animation:none}}
+/* Gato de referencia (assets/gato.png) en lugar del emoji */
+.cat img{height:205px;width:auto}
+@media(max-width:520px){.cat img{height:170px}}
+
+/* ───────── Versión 7: carta con cereza, gato grande y animado, confeti ───────── */
+/* Carta: la cereza reemplaza a la corona */
+.letter-cherry{position:absolute;right:22px;top:14px;width:46px;height:auto;pointer-events:none;-webkit-user-drag:none;user-select:none;transform:rotate(8deg);filter:drop-shadow(0 2px 1px #0002)}
+.letter-card h2{padding-right:58px}
+.letter-sign{font-size:24px}
+@media(max-width:520px){.letter-cherry{right:14px;top:10px;width:40px}.letter-card h2{padding-right:48px}}
+
+/* Gato más grande */
+.cat-stage{height:340px}
+.cat img{height:300px;width:auto}
+.cat{touch-action:none;cursor:pointer;transform-origin:50% 92%}   /* se contrae/estira desde los pies */
+@media(max-width:520px){.cat-stage{height:262px}.cat img{height:235px}}
+@media(max-height:700px) and (max-width:520px){.cat-stage{height:228px}.cat img{height:200px}}
+
+/* Al comer: se contrae, rebota y se acomoda */
+@keyframes catChew{
+  0%{transform:scale(1,1)}
+  14%{transform:scale(.8,.86) rotate(-2deg)}
+  30%{transform:scale(1.1,.9) rotate(2deg)}
+  46%{transform:scale(.88,1.08)}
+  62%{transform:scale(1.05,.95) rotate(-1deg)}
+  80%{transform:scale(.97,1.02)}
+  100%{transform:scale(1,1)}
+}
+.cat.eating{animation:catChew .7s ease-out}
+/* Al acariciarlo: se aprieta suavemente */
+@keyframes catPet{
+  0%{transform:scale(1,1)}
+  30%{transform:scale(1.07,.9)}
+  60%{transform:scale(.97,1.04)}
+  100%{transform:scale(1,1)}
+}
+.cat.petted{animation:catPet .45s ease-out}
+.pet-heart{position:absolute;z-index:6;pointer-events:none;font-size:24px;color:#e77d9a;transform:translate(-50%,0);animation:petHeart .95s ease-out forwards}
+@keyframes petHeart{0%{opacity:0;transform:translate(-50%,6px) scale(.6)}20%{opacity:1}100%{opacity:0;transform:translate(-50%,-62px) scale(1.15)}}
+
+/* Cereza PNG como comida */
+.cherry img{height:50px;width:auto;display:block;pointer-events:none;-webkit-user-drag:none;user-select:none}
+.cherry:disabled img{opacity:.3}
+.cherry-ghost{font-size:0}
+.cherry-ghost img{height:72px;width:auto;display:block;pointer-events:none}
+
+/* Confeti: cubre la pantalla, no intercepta toques */
+.confetti-overlay{position:fixed;inset:0;overflow:hidden;z-index:9000;pointer-events:none;display:none}
+.confetti-overlay img{position:absolute;max-width:none;pointer-events:none;-webkit-user-drag:none;user-select:none}
+.confetti-overlay.show{display:block}
+@media(prefers-reduced-motion:reduce){.cat.eating,.cat.petted{animation-duration:.01s}}
+
+/* Rayas de la carta alineadas con el texto: el rayado usa el mismo interlineado (--lh) que el texto */
+.letter-lines{--lh:34px;line-height:var(--lh);background:linear-gradient(to bottom,transparent calc(var(--lh) - 1px),#efc9c8 calc(var(--lh) - 1px)) 0 0/100% var(--lh) repeat-y}
+@media(max-width:520px){.letter-lines{--lh:31px}}
+
+/* ───────── Versión 8: marco vertical para el dibujo (hoja A4, 4960×7016) ───────── */
+/* Se calcula el tamaño por la altura disponible y el ancho sale de la proporción de la hoja. */
+.art-frame{width:auto;height:min(56vh,540px);min-height:0;max-width:86vw;aspect-ratio:4960/7016;background:#fff}
+.art-frame img{width:100%;height:100%;object-fit:contain}
+@media(max-width:520px){.art-frame{height:min(52vh,470px);max-width:84vw}}

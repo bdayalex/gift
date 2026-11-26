@@ -1,4 +1,4 @@
-REGALO INTERACTIVO PARA ALEX  (v8)
+REGALO INTERACTIVO PARA ALEX  (v9)
 ===================================
 
 CÓMO PROBARLO
@@ -11,12 +11,13 @@ QUÉ PASA, ESCENA POR ESCENA
 2. Sobre 3D flotante: tocarlo lo abre y aparece la carta (con cereza).
 3. Gatito: se arrastran 3 cerezas hasta él (mouse o dedo). Cada cereza suena “ñam ñam” y el gato se contrae y rebota. También se lo puede acariciar tocándolo o frotándolo. Con la tercera cereza suena el “yaay” y cae confeti.
 4. Regalo: se toca la caja y se abre.
-5. Dibujo (hoja vertical) con descarga en JPG y GIF.
+5. Dibujo (hoja vertical) con descarga en JPG y GIF. Al aparecer empieza a sonar “Hydrogen” (Hotline Miami) con un fade-in; el enlace “♪ Música: sí/no” la silencia o la reanuda. Al volver a ver la sorpresa, la música se detiene.
 
 DÓNDE EDITAR
 - Texto de la carta: `index.html`, dentro de `<article class="letter-card">`.
 - Intro: la velocidad se ajusta sola para durar lo mismo que la canción. En `script.js` se puede cambiar INTRO_FACE_TURNS (veces que alterna la carita) e INTRO_WEAPON_LOOPS (repeticiones del ciclo de armas).
 - Letras del final de la intro: PIXEL_FONT (script.js).
+- Volumen de la canción del dibujo: ART_MUSIC_VOLUME (script.js, de 0 a 1).
 - Duración del confeti: CONFETTI_MS (script.js). Tiempo entre el último ñam y el festejo: el 700 en `yayTimer=setTimeout(...)`.
 - Colores y tamaños (gato, cereza, carta): `styles.css`, bloque “Versión 7”.
 
@@ -26,6 +27,7 @@ ARCHIVOS (carpeta assets/)
 - intro/f00.png … f16.png: fotogramas del GIF original (sin marca de agua, fondo transparente).
 - vanity-sound.ogg/.mp3: sonido de la intro.
 - gato.png: gato de referencia.   cereza.png: cereza.
+- hydrogen.ogg/.mp3: canción de la pantalla del dibujo (casi 5 min; se repite si termina).
 - nomnom.ogg/.mp3: sonido al comer.   yay.ogg/.mp3: festejo.   confeti.gif: confeti.
 (El .mp3 de cada sonido es un respaldo para navegadores que no leen OGG.)
 

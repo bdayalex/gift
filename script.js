@@ -255,6 +255,48 @@ function stopSounds(){
 }
 let yayTimer=null;
 
+// Música del dibujo (assets/hydrogen.ogg): empieza al aparecer el dibujo, con fade-in, y se puede silenciar.
+const artMusic=loadSound('hydrogen');
+artMusic.preload='none';                   // pesa ~5 MB: se empieza a bajar recién cuando se completa el minijuego
+artMusic.loop=true;
+const ART_MUSIC_VOLUME=0.6;                // la canción original es fuerte; bajá este número si todavía suena alta (0 a 1)
+const musicToggle=document.getElementById('musicToggle');
+let musicOn=true;
+let fadeFrame=null;
+function fadeMusicTo(target,ms){
+  cancelAnimationFrame(fadeFrame);
+  const from=artMusic.volume,t0=performance.now();
+  (function step(now){
+    const k=Math.max(0,Math.min(1,(now-t0)/ms));
+    artMusic.volume=Math.max(0,Math.min(1,from+(target-from)*k));
+    if(k<1)fadeFrame=requestAnimationFrame(step);
+  })(t0);
+}
+function startArtMusic(){
+  if(!musicOn)return;
+  artMusic.volume=0;
+  const p=artMusic.play();
+  if(p&&p.catch)p.catch(()=>{});
+  fadeMusicTo(ART_MUSIC_VOLUME,2500);
+}
+function stopArtMusic(){
+  cancelAnimationFrame(fadeFrame);
+  try{artMusic.pause();artMusic.currentTime=0;}catch(_){}
+}
+function setMusicOn(on){
+  musicOn=on;
+  musicToggle.textContent=on?'♪ Música: sí':'♪ Música: no';
+  musicToggle.setAttribute('aria-pressed',String(on));
+  if(on)startArtMusic(); else{cancelAnimationFrame(fadeFrame);artMusic.pause();}
+}
+function resetArtMusic(){                 // al volver a empezar: música detenida y el interruptor otra vez en “sí”
+  stopArtMusic();
+  musicOn=true;
+  musicToggle.textContent='♪ Música: sí';
+  musicToggle.setAttribute('aria-pressed','true');
+}
+musicToggle.addEventListener('click',()=>setMusicOn(!musicOn));
+
 // Minijuego: arrastrar físicamente las cerezas hasta la zona del gatito.
 let fed=0;
 let dragging=false;
@@ -335,6 +377,7 @@ function feedCat(){
     catMessage.textContent='¡Misión cumplida! El gatito te preparó una sorpresa.';
     // Tras el último ñam: confeti y festejo.
     yayTimer=setTimeout(()=>{ playSound(yaySound); showConfetti(); },700);
+    artMusic.preload='auto'; artMusic.load();   // va bajando la canción del dibujo mientras suena el festejo
   }
 }
 
@@ -377,7 +420,7 @@ giftBox.addEventListener('click',()=>{
   giftOpened=true;
   giftBox.classList.add('open');
   document.getElementById('giftHint').textContent='¡Tu sorpresa está acá!';
-  setTimeout(()=>showScene('artScene'),850);
+  setTimeout(()=>{ showScene('artScene'); startArtMusic(); },850);
 });
 
 document.getElementById('restart').addEventListener('click',()=>{
@@ -394,7 +437,7 @@ document.getElementById('restart').addEventListener('click',()=>{
   toGift.classList.add('hidden');
   cherry.disabled=false;
   cat.classList.remove('eating','petted');
-  stopSounds();hideConfetti();
+  stopSounds();hideConfetti();resetArtMusic();
   heart.classList.remove('show');
   giftBox.classList.remove('open');
   document.getElementById('giftHint').textContent='Un regalo hecho con mucho cariño';
